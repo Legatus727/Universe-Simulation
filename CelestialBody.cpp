@@ -29,11 +29,28 @@ void CelestialBody::draw(sf::RenderTarget& target, sf::RenderStates states) cons
 }
 
 void CelestialBody::setModifiedPosition() {
-    int modifiedXPos = ((int)xPos) % (windowXSize / 2);
-    int modifiedYPos = ((int)yPos) % (windowYSize / 2);
+    
+    int modifiedXPos;
+    int modifiedYPos;
+    int xPosTemp = static_cast<int>(xPos);
+    int yPosTemp = static_cast<int>(yPos);
 
-    sprite.setPosition((windowXSize / 2) + modifiedXPos, (windowYSize / 2) + modifiedYPos);
+    if (xPosTemp == 0) {
+        modifiedXPos = 0;
+    } else {
+        modifiedXPos = xPosTemp % (windowXSize / 2);
+    }
+    if (yPosTemp == 0) {
+        modifiedYPos = 0;
+    } else {
+        modifiedYPos = yPosTemp % (windowYSize / 2);
+    }
 
-    xPos = (float)modifiedXPos;
-    yPos = (float)modifiedYPos;
+    modifiedXPos += windowXSize / 2;
+    modifiedYPos += windowYSize / 2;
+
+    sprite.setPosition(modifiedXPos, modifiedYPos);
+
+    xPos = static_cast<float>(modifiedXPos);
+    yPos = static_cast<float>(modifiedYPos);
 }
