@@ -3,6 +3,8 @@
 
 CelestialBody::CelestialBody(float xPos, float yPos, float xVel, float yVel, float mass, std::string imageFile) {
 
+    int modifiedXPos = ((int)xPos) % windowXSize;
+    int modifiedYPos = ((int)yPos) % windowYSize;
     sf::Image image;
     if (!image.loadFromFile(imageFile)) {
         std::cout << "Failed to load image." << std::endl;
@@ -20,6 +22,8 @@ CelestialBody::CelestialBody(float xPos, float yPos, float xVel, float yVel, flo
     this->mass = mass;
     this->sprite = sprite;
     this->texture = texture;
+
+    sprite.setPosition((windowXSize / 2) + modifiedXPos, (windowYSize / 2) + modifiedYPos);
 
     // set sprite position
 }

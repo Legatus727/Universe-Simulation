@@ -10,10 +10,10 @@ NBody: CelestialBody.o Universe.o main.o
 	$(CC) $(CFLAGS) -o $(EXEC) CelestialBody.o Universe.o main.o $(SFML)
 
 main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp -o main.o $(SFML)
+	$(CC) $(CFLAGS) -c main.cpp -o main.o
 
 CelestialBody.o: CelestialBody.cpp CelestialBody.h
-	$(CC) $(CFLAGS) -c CelestialBody.cpp -o CelestialBody.o $(SFML)
+	$(CC) $(CFLAGS) -c CelestialBody.cpp -o CelestialBody.o
 
 Universe.o: Universe.cpp Universe.h
 	$(CC) $(CFLAGS) -c Universe.cpp -o Universe.o
