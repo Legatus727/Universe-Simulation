@@ -20,9 +20,9 @@ int main(int argc, char* argv[]) {
                 if (event.type == sf::Event::Closed)
                         window.close();
         }
-        window.clear(sf::Color::Black);
+        window.clear();
         for (int i = 0; i < universe.getNumPlanets(); i++) {
-            window.draw(*(universe.getPlanet(i)));
+            //window.draw(*(universe.getPlanet(i)));
         }
         window.display();
     }
