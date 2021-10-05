@@ -39,7 +39,7 @@ std::istream& operator>>(std::istream& in, Universe& universe) {
 
 CelestialBody* Universe::getPlanet(int index) {
    
-    if (index < 0 || index > this->planets.size()) {
+    if (index < 0 || index > (int)this->planets.size()) {
         std::cout << "Invalid index" << std::endl;
         return nullptr;
     }
