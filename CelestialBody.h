@@ -10,6 +10,7 @@ public:
     void setUniverseSize(float size) { universeSize = size; }
     void setWindowXSize(float size) { windowXSize = size; }
     void setWindowYSize(float size) { windowXSize = size; }
+    void setModifiedPosition();
 
     
         

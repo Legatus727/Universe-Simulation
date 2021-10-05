@@ -7,33 +7,9 @@
 #include "Universe.h"
 
 int main(int argc, char* argv[]) {
-
-    int numOfPlanets;
-    float universeSize;
-    float xPos;
-    float yPos;
-    float xVel;
-    float yVel;
-    float mass;
-    std::string imageFile;
+    
     Universe universe;
-    std::cin >> numOfPlanets;
-    std::cin >> universeSize;
-
-    std::cin >> xPos;
-    std::cin >> yPos;
-    std::cin >> xVel;
-    std::cin >> yVel;
-    std::cin >> mass;
-    std::cin >> imageFile;
-
-
-    // Use universe to read values
-
-    CelestialBody body(xPos, yPos, xVel, yVel, mass, imageFile);
-    body.setUniverseSize(universeSize);
-    body.setWindowXSize(800);
-    body.setWindowYSize(800);
+    std::cin >> universe;
 
     sf::RenderWindow window(sf::VideoMode(800, 800), "Space.. The Final Frontier");
 
@@ -45,7 +21,9 @@ int main(int argc, char* argv[]) {
                         window.close();
         }
         window.clear(sf::Color::Black);
-        window.draw(body);
+        for (int i = 0; i < universe.getNumPlanets(); i++) {
+            window.draw(*(universe.getPlanet(i)));
+        }
         window.display();
     }
     
