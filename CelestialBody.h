@@ -4,7 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-class CelestialBody : public sf::Drawable{
+class CelestialBody : public sf::Drawable {
 public:
     CelestialBody(float xPos, float yPos, float xVel, float yVel, float mass, std::string imageFile);
     void setUniverseSize(float size) { universeSize = size; }
@@ -12,8 +12,6 @@ public:
     void setWindowYSize(float size) { windowXSize = size; }
     void setModifiedPosition();
 
-    
-        
 private:
     float xPos;
     float yPos;
@@ -22,7 +20,7 @@ private:
     float mass;
     sf::Sprite sprite;
     sf::Texture texture;
-    float universeSize; 
+    float universeSize;
     int windowXSize;
     int windowYSize;
 
