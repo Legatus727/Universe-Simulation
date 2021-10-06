@@ -12,7 +12,7 @@ CelestialBody::CelestialBody(float xPos, float yPos, float xVel, float yVel, flo
     sf::Texture texture;
     texture.loadFromImage(image);
     sf::Sprite sprite(texture);
-    
+
     this->xPos = xPos;
     this->yPos = yPos;
     this->xVel = xVel;
@@ -20,6 +20,8 @@ CelestialBody::CelestialBody(float xPos, float yPos, float xVel, float yVel, flo
     this->mass = mass;
     this->sprite = sprite;
     this->texture = texture;
+    windowXSize = 800;
+    windowYSize = 800;
 
     this->setModifiedPosition();
 }
@@ -29,21 +31,25 @@ void CelestialBody::draw(sf::RenderTarget& target, sf::RenderStates states) cons
 }
 
 void CelestialBody::setModifiedPosition() {
-    
+
     int modifiedXPos;
     int modifiedYPos;
-    int xPosTemp = static_cast<int>(xPos);
-    int yPosTemp = static_cast<int>(yPos);
+    long long int xPosTemp = static_cast<long long int>(xPos);
+    long long int yPosTemp = static_cast<long long int>(yPos);
 
     if (xPosTemp == 0) {
         modifiedXPos = 0;
-    } else {
+    }
+    else {
         modifiedXPos = xPosTemp % (windowXSize / 2);
+        if (modifiedXPos < 1) { modifiedXPos *= -1; }
     }
     if (yPosTemp == 0) {
         modifiedYPos = 0;
-    } else {
+    }
+    else {
         modifiedYPos = yPosTemp % (windowYSize / 2);
+        if (modifiedYPos < 1) { modifiedYPos *= -1; }
     }
 
     modifiedXPos += windowXSize / 2;
