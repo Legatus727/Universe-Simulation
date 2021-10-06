@@ -9,7 +9,7 @@ class Universe {
 public:
     Universe() : planets(0, nullptr) {};
     void addPlanet(float xPos, float yPos, float xVel, float yVel, float mass, std::string imageFile);
-    CelestialBody* getPlanet(int index);
+    CelestialBody& operator[](int index);
     int getNumPlanets() { return planets.size(); }
     friend std::istream& operator>>(std::istream& in, Universe& universe);
 
