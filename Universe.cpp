@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Universe.h"
 
-  
+
 void Universe::addPlanet(float xPos, float yPos, float xVel, float yVel, float mass, std::string imageFile) {
 
     std::unique_ptr<CelestialBody> planet(new CelestialBody(xPos, yPos, xVel, yVel, mass, imageFile));
@@ -37,12 +37,11 @@ std::istream& operator>>(std::istream& in, Universe& universe) {
     return in;
 }
 
-CelestialBody* Universe::getPlanet(int index) {
-   
-    if (index < 0 || index > (int)this->planets.size()) {
+CelestialBody& Universe::operator[](int index) {
+    if (index < 0 || index >(int)planets.size()) {
         std::cout << "Invalid index" << std::endl;
-        return nullptr;
-    }
-    
-    return this->planets[index];
+        exit(1);
+    } 
+
+    return *(planets[index]);
 }
