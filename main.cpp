@@ -7,7 +7,7 @@
 #include "Universe.h"
 
 int main(int argc, char* argv[]) {
-    
+
     Universe universe;
     std::cin >> universe;
 
@@ -17,16 +17,16 @@ int main(int argc, char* argv[]) {
         sf::Event event;
         while (window.pollEvent(event))
         {
-                if (event.type == sf::Event::Closed)
-                        window.close();
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
         window.clear();
         for (int i = 0; i < universe.getNumPlanets(); i++) {
-            //window.draw(*(universe.getPlanet(i)));
+            window.draw(universe[i]);
         }
         window.display();
     }
-    
+
 
     return 0;
 }
