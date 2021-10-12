@@ -1,14 +1,7 @@
-/**
- * Universe.cpp - Implementation of the Universe class
- * 
- * Author: Tim Robbins
- * Date: 10/11/21
- * Class: COMP.2040 - 202
- * Instructor: Dr. Rykalova
- */
 #include <iostream>
-#include "Universe.h"
 #include <math.h>
+#include <fstream>
+#include "Universe.h"
 
 
 void Universe::addPlanet(float xPos, float yPos, float xVel, float yVel, float mass, std::string imageFile) {
@@ -96,18 +89,26 @@ void Universe::calculateStep(int planetIndex) {
      planets[planetIndex]->setTempYAccel(accelerationY);
 }
 
-void Universe::displayStats() {
-    std::cout << static_cast<int>(planets.size()) << std::endl;
+void Universe::writeStats(std::string fileName) {
+
+    std::ofstream outputFile;
+    outputFile.open(fileName);
+    
+    if (!outputFile.is_open()) {
+        std::cout << "Failed to write output to file" << std::endl;
+        exit(1);
+    }
+
+    outputFile << static_cast<int>(planets.size()) << std::endl;
 
     for (int i = 0; i < static_cast<int>(planets.size()); i++) {
         
         if ( i == 0) {
-            std::cout << planets[i]->getUniverseSize() << std::endl;
+            outputFile << planets[i]->getUniverseSize() << std::endl;
         }
 
-        std::printf("%12g  %12g  %12g  %12g  %12g  ", planets[i]->getXPos(), planets[i]->getYPos(), 
-            planets[i]->getXVel(), planets[i]->getYVel(), planets[i]->getMass());
-        std::cout << planets[i]->getImageFile() << std::endl;
+        outputFile << planets[i]->getXPos() << "  " << planets[i]->getYPos() << "  " <<
+            planets[i]->getXVel() << "  " << planets[i]->getYVel() << "  " << planets[i]->getMass() <<
+            "  " << planets[i]->getImageFile() << std::endl;
     }
-    std::cout << std::endl;
 }
