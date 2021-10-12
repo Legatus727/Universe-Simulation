@@ -1,11 +1,3 @@
-/**
- * CelestialBody.h - Defining the CelestialBody class
- * 
- * Author: Tim Robbins
- * Date: 10/11/21
- * Class: COMP.2040 - 202
- * Instructor: Dr. Rykalova
- */
 #ifndef CELESTIALBODY_H
 #define CELESTIALBODY_H
 #include <SFML/System.hpp>
