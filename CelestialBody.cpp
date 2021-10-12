@@ -1,11 +1,3 @@
-/**
- * CelestialBody.cpp - Implementation of the CelestialBody class
- * 
- * Author: Tim Robbins
- * Date: 10/11/21
- * Class: COMP.2040 - 202
- * Instructor: Dr. Rykalova
- */
 #include <iostream>
 #include "CelestialBody.h"
 
@@ -54,7 +46,7 @@ void CelestialBody::setModifiedPosition() {
         }
 
         if (modYPos != 0) {
-            modYPos /= 1e+9;
+            modYPos /= -1e+9;
             modYPos += windowYSize / 2;
         } else {
             modYPos = windowYSize / 2;
