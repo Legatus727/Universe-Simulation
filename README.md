@@ -16,3 +16,7 @@ $ ./NBody 157788000.0 25000.0 < planets.txt
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Version
+
+(latest) v1 : Nov 2021
